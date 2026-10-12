@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report to Telegram</title>
+<style>
+  :root {
+    --bg: #0e1621;
+    --card: #17212b;
+    --card-2: #1c2936;
+    --ink: #e8eef4;
+    --muted: #8fa3b5;
+    --line: #2a3a4c;
+    --accent: #2aabee;
+    --accent-press: #1d96d8;
+    --danger: #e15456;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 20px 56px;
+    line-height: 1.6;
+  }
+  .wrap { width: 100%; max-width: 560px; }
+
+  .top {
+    text-align: center;
+    padding: 12px 0 26px;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--danger);
+    border: 1px solid rgba(225,84,86,.4);
+    background: rgba(225,84,86,.08);
+    padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 18px;
+  }
+  .badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--danger); }
+  h1 {
+    margin: 0 0 10px;
+    font-size: 30px; font-weight: 750; letter-spacing: -.4px;
+    text-wrap: balance;
+  }
+  .sub { margin: 0 auto; max-width: 40ch; color: var(--muted); font-size: 15px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .card + .card { margin-top: 16px; }
+  .card-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    background: var(--card-2);
+  }
+  .card-head span { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .card-body { padding: 18px; }
+
+  .meta { display: grid; gap: 12px; font-size: 14px; }
+  .meta .k { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; display: block; margin-bottom: 2px; }
+  .meta .v { color: var(--ink); word-break: break-word; }
+  .meta .v.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+  .meta .v a { color: var(--accent); text-decoration: none; }
+  .meta .v a:hover { text-decoration: underline; }
+
+  .preview {
+    white-space: pre-wrap;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #c8d6e2;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    max-height: 320px;
+    overflow: auto;
+  }
+
+  .cta {
+    position: sticky;
+    bottom: 0;
+    margin-top: 22px;
+    padding: 14px 0 6px;
+    background: linear-gradient(180deg, rgba(14,22,33,0), var(--bg) 30%);
+  }
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%;
+    padding: 17px 20px;
+    border: none; border-radius: 14px;
+    background: var(--accent);
+    color: #04283f;
+    font-size: 17px; font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(42,171,238,.28);
+    transition: transform .12s ease, background .12s ease;
+    min-height: 56px;
+  }
+  .btn:active { transform: translateY(1px) scale(.99); background: var(--accent-press); }
+  .hint { text-align: center; color: var(--muted); font-size: 12.5px; margin: 12px 0 0; }
+  .hint b { color: var(--ink); font-weight: 600; }
+
+  ol.steps { margin: 0; padding: 0 0 0 20px; display: grid; gap: 10px; font-size: 14px; color: #c8d6e2; }
+  ol.steps li::marker { color: var(--accent); font-weight: 700; }
+  ol.steps b { color: var(--ink); }
+
+  footer { margin-top: 30px; text-align: center; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="badge">Abuse report</div>
+      <h1>Report to Telegram</h1>
+      <p class="sub">The email below is already written and addressed. Press the button — it opens your mail app with everything filled in. You just tap Send.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span>Offenders</span></div>
+      <div class="card-body">
+        <div class="meta">
+          <div>
+            <span class="k">User</span>
+            <span class="v mono">@Rezaking7777 &nbsp;·&nbsp; ID 133259009</span>
+          </div>
+          <div>
+            <span class="k">Channel</span>
+            <span class="v mono">@Godfatherr3 &nbsp;·&nbsp; ID -1001556083571</span>
+          </div>
+          <div>
+            <span class="k">Offending posts</span>
+            <span class="v">
+              <a href="https://t.me/Godfatherr3/2807">t.me/Godfatherr3/2807</a><br>
+              <a href="https://t.me/Godfatherr3/2833">t.me/Godfatherr3/2833</a>
+            </span>
+          </div>
+          <div>
+            <span class="k">Violation</span>
+            <span class="v">Doxxing — private phone number &amp; photos published without consent; incitement to harass.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span>What happens</span></div>
+      <div class="card-body">
+        <ol class="steps">
+          <li><b>Tap the button</b> — your email app opens.</li>
+          <li><b>To, subject and body</b> are already filled in.</li>
+          <li><b>Tap Send.</b> That's it — the report is delivered to <b>abuse@telegram.org</b>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><span>Email preview</span><span>abuse@telegram.org</span></div>
+      <div class="card-body">
+        <div class="preview" id="preview"></div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn" id="send" href="#">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.7 10.3 20.5 3.2c.8-.3 1.6.5 1.3 1.3l-7.1 17.8c-.3.8-1.5.9-1.9.1l-2.3-4.8a1 1 0 0 0-.5-.5l-4.8-2.3c-.8-.4-.7-1.6.1-1.9Z" fill="currentColor"/><path d="m9.6 14.4 8.6-8.6" stroke="#04283f" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Send the report now
+      </a>
+      <p class="hint">Opens your mail app with <b>To</b>, <b>Subject</b> and <b>Message</b> already filled — you only press <b>Send</b>.</p>
+    </div>
+
+    <footer>Made for the victim's report · No data is collected or stored by this page.</footer>
+  </div>
+
+<script>
+  var TO = "abuse@telegram.org";
+  var SUBJECT = "Doxxing Report — User ID 133259009 / Channel -1001556083571";
+  var BODY = [
+    "Victim Report — Doxxing by User ID 133259009 (@Rezaking7777) / Channel ID -1001556083571 (@Godfatherr3)",
+    "",
+    "To the Telegram Trust & Safety Team,",
+    "",
+    "I am one of the victims whose private phone number and photographs were published without my consent by @Rezaking7777 (User ID: 133259009) in the channel @Godfatherr3 (Channel ID: -1001556083571).",
+    "",
+    "The user then encouraged others to contact and harass me. I have been receiving unwanted messages and threats since.",
+    "",
+    "Offending posts (still live):",
+    "- https://t.me/Godfatherr3/2807",
+    "- https://t.me/Godfatherr3/2833",
+    "",
+    "I never consented to this. I am scared for my safety.",
+    "",
+    "I am asking Telegram to:",
+    "1. Remove the posts immediately",
+    "2. Permanently suspend the account @Rezaking7777",
+    "3. Preserve account data for law enforcement",
+    "",
+    "I am prepared to provide identification upon request.",
+    "",
+    "Thank you for your urgent attention."
+  ].join("\n");
+
+  var mailto = "mailto:" + TO +
+    "?subject=" + encodeURIComponent(SUBJECT) +
+    "&body=" + encodeURIComponent(BODY);
+
+  var sendBtn = document.getElementById("send");
+  sendBtn.href = mailto;
+  document.getElementById("preview").textContent =
+    "Subject: " + SUBJECT + "\n\n" + BODY;
+
+  // Fire the mail app automatically on load (button stays as fallback).
+  window.addEventListener("load", function () {
+    setTimeout(function () { window.location.href = mailto; }, 700);
+  });
+</script>
+</body>
+</html>
